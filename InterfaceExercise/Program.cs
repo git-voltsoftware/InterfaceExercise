@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace InterfaceExercise
 {
@@ -6,39 +7,90 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
-            //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
+            Car car1 = new Car
+            {
+                Make = "Ford",
+                Model = "Mustang",
+                Year = 2023,
+                MilesPerGallon = 23,
+                Color = "Red",
+                DriveType = "2WD",
+                Wheels = 4
+            };
 
-            //Create 2 Interfaces called IVehicle & ICompany
+            Truck truck1 = new Truck
+            {
+                Make = "Ford",
+                Model = "F-150",
+                Year = 2023,
+                Color = "Silver",
+                DriveType = "4WD",
+                Wheels = 4,
+                BedSize = 5.11
+            };
 
-            //Create 3 classes called Car , Truck , & SUV
-
-            //In your IVehicle
+            SUV suv1 = new SUV
+            {
+                Make = "Ford",
+                Model = "F-150",
+                Year = 2023,
+                Color = "Silver",
+                NumberOfSeats = 8,
+                DriveType = "4WD",
+                Wheels = 4
+            };
             
-                /* Create 4 members that Car, Truck, & SUV all have in common.
-                 * Example: All vehicles have a number of wheels... for now..
-                 */
-            
-
-            //In ICompany
-            
-                /*Create 2 members that are specific to each every company
-                 * regardless of vehicle type.
-                 *
-                 *
-                 * Example: public string Logo { get; set; }
-                 */
-
-            //In each of your car, truck, and suv classes
-
-                /*Create 2 members that are specific to each class
-                 * Example: truck has a bed size while car has a trunk while suv has a cargo hold size
-                 *
-                 * Then, Set each class to inherit from both IVehicle and ICompany and implement their members.
-                 * 
-                 */
-
-            //Now, create objects of your 3 classes and give their members values;
-            //Creatively display and organize their values
         }
+
+        public interface IVehicle
+        {
+            string Color { get; set; }
+            string DriveType { get; set; }
+            int Wheels { get; set; }
+        }
+
+        public interface ICompany
+        {
+            string Make { get; set; }
+            string Model { get; set; }
+            int Year { get; set; }
+        }
+
+        public class Car : IVehicle, ICompany
+        {
+            public string Make { get; set; }
+            public string Model { get; set; }
+            public int Year { get; set; }
+            public int MilesPerGallon { get; set; }
+            public string Color { get; set; }
+            public string DriveType { get; set; }
+            public int Wheels { get; set; }
+
+        }
+
+        public class Truck : IVehicle, ICompany
+        {
+            public string Make { get; set; }
+            public string Model { get; set; }
+            public int Year { get; set; }
+            public int Wheels { get; set; }
+            public double BedSize { get; set; }
+            public string Color { get; set; }
+            public string DriveType { get; set;}
+
+
+        }
+
+        public class SUV : IVehicle, ICompany
+        {
+            public string Make { get; set; }
+            public string Model { get; set; }
+            public int Year { get; set; }
+            public int Wheels { get; set; }
+            public int NumberOfSeats { get; set; }
+            public string Color { get; set; }
+            public string DriveType { get; set; }
+        }
+
     }
 }
