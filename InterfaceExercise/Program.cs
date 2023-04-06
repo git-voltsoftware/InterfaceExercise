@@ -39,8 +39,9 @@ namespace InterfaceExercise
                 DriveType = "4WD",
                 Wheels = 4
             };
-            
-        }
+
+            Console.WriteLine($"So I hit the lottery and bought a {car1.Make} {car1.Model} for off roading I bought a {truck1.Make} {truck1.Model} and for the family long rides I bought a {suv1.Make} {suv1.Model}.");
+            Console.ReadKey();        }
 
         public interface IVehicle
         {
